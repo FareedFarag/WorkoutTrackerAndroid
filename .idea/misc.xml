@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/layout_bg.xml" value="0.101" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1887031408308004" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3205001831054688" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.312329093832617" />
         <entry key="app/src/main/res/layout/fragment_user_details.xml" value="0.14311043566362716" />
