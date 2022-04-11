@@ -12,7 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFEEDA"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/loginText"
@@ -22,6 +24,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="80dp"
             android:text="Registration"
+            android:textColor="#0B0202"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +38,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
             android:layout_marginTop="73dp"
+            android:layout_marginEnd="80dp"
             android:text="First Name"
             android:textAlignment="viewStart"
             android:textSize="16sp"
@@ -49,17 +52,18 @@
 
         <EditText
             android:id="@+id/firstNameTextField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="80dp"
-            android:text="@={registerViewModel.inputFirstName}"
-            android:hint="Enter your first name"
-            android:inputType="text"
+            android:hint="  Enter your first name"
             android:importantForAutofill="no"
+            android:inputType="text"
+            android:text="@={registerViewModel.inputFirstName}"
             android:textAlignment="viewStart"
             android:textSize="14sp"
+            android:background="@drawable/layout_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,22 +87,24 @@
 
         <EditText
             android:id="@+id/lastNameTextField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="80dp"
             android:autofillHints=""
             android:ems="10"
-            android:text="@={registerViewModel.inputLastName}"
-            android:hint="Enter your last name"
+            android:hint="  Enter your last name"
             android:inputType="textPersonName"
+            android:text="@={registerViewModel.inputLastName}"
             android:textAlignment="viewStart"
             android:textSize="14sp"
+            android:background="@drawable/layout_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lastNameText" />
+            app:layout_constraintTop_toBottomOf="@+id/lastNameText"
+            />
 
         <TextView
             android:id="@+id/usernameText"
@@ -118,17 +124,18 @@
 
         <EditText
             android:id="@+id/usernameTextField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="80dp"
             android:ems="10"
-            android:hint="Enter your username"
+            android:hint="  Enter your username"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:text="@={registerViewModel.inputUsername}"
             android:textSize="14sp"
+            android:background="@drawable/layout_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/usernameText" />
@@ -151,13 +158,14 @@
 
         <EditText
             android:id="@+id/passwordTextField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="80dp"
+            android:background="@drawable/layout_bg"
             android:ems="10"
-            android:hint="Enter your password"
+            android:hint="  Enter your password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:text="@={registerViewModel.inputPassword}"
@@ -174,6 +182,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
+            android:backgroundTint="#C2B8AC"
             android:onClick="@{()->registerViewModel.submitButton()}"
             android:text="Register"
             app:layout_constraintEnd_toEndOf="parent"
@@ -196,3 +205,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
+
