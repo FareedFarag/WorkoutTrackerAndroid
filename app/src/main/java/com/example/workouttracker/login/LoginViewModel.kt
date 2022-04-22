@@ -10,6 +10,8 @@ import androidx.lifecycle.*
 import com.example.workouttracker.SharedPreference
 import com.example.workouttracker.SharedViewModel
 import com.example.workouttracker.database.UserRepository
+import com.toxicbakery.bcrypt.Bcrypt
+import de.nycode.bcrypt.verify
 import kotlinx.coroutines.*
 
 
@@ -66,7 +68,8 @@ class LoginViewModel(private val repository: UserRepository, application: Applic
 
                 val checkUsername = repository.getUserByUsername(inputUsername.value!!)
                 if (checkUsername != null) {
-                    if(checkUsername.password == inputPassword.value){
+                    Log.d("hashlog", checkUsername.password.toString())
+                    if(inputPassword.value == checkUsername.password){
                         inputUsername.value = null
                         inputPassword.value = null
                         sharedPreference.saveString("isLoggedIn","1")

@@ -21,3 +21,14 @@ data class UserEntity(
     @ColumnInfo(name = "password")
     var password: String
 )
+
+@Entity(tableName = "profile")
+data class Profile(
+    var userId: Int,
+
+    @ColumnInfo(name = "weight")
+    var weight: Double,
+
+    @ColumnInfo(name = "height")
+    var height: String
+)

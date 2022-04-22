@@ -63,4 +63,9 @@ dependencies {
 
     implementation "com.google.android.material:material:1.2.1"
     implementation "android.arch.lifecycle:extensions:1.1.1"
+
+    implementation("com.ToxicBakery.library.bcrypt:bcrypt:+")
+
+//    implementation("org.springframework.security:spring-security-core")
+    implementation("de.nycode:bcrypt:2.2.0")
 }

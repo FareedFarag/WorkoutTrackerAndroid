@@ -5,8 +5,11 @@ import android.util.Log
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.*
+import at.favre.lib.crypto.bcrypt.BCrypt
 import com.example.workouttracker.database.UserEntity
 import com.example.workouttracker.database.UserRepository
+import com.toxicbakery.bcrypt.Bcrypt
+import de.nycode.bcrypt.hash
 import kotlinx.coroutines.*
 
 
@@ -69,6 +72,10 @@ class RegisterViewModel(private val repository: UserRepository, application: App
                     val lastName = inputLastName.value!!
                     val email = inputUsername.value!!
                     val password = inputPassword.value!!
+//                    val hash = BCryptPasswordEncoder().encode(password)
+//                    val hash = Bcrypt.hash(password, 10)
+//                    val hash = hash(inputPassword.value!!)
+//                    Log.d("hash", hash.toString())
                     insert(UserEntity(0, firstName, lastName, email, password))
                     inputFirstName.value = null
                     inputLastName.value = null
