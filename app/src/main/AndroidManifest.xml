@@ -34,6 +34,22 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".ListPlaylist"
+            android:exported="false"
+            android:label="@string/title_activity_lists" />
+        <activity
+            android:name=".ListWorkout"
+            android:exported="false"
+            android:label="@string/title_activity_lists" />
+        <activity
+            android:name=".AddWorkoutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_lists" />
+        <activity
+            android:name=".EditWorkoutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_lists" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
