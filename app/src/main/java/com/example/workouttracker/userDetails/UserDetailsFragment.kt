@@ -1,6 +1,7 @@
 package com.example.workouttracker.userDetails
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
@@ -22,6 +23,7 @@ import com.example.workouttracker.SharedPreference
 import com.example.workouttracker.database.UserDatabase
 import com.example.workouttracker.database.UserRepository
 import com.example.workouttracker.databinding.FragmentUserDetailsBinding
+import com.example.workouttracker.jogLog.MapsActivity
 import kotlinx.android.synthetic.main.fragment_user_details.*
 import kotlin.system.exitProcess
 
@@ -81,6 +83,13 @@ class UserDetailsFragment : Fragment() {
                 userDetailsViewModel.doneNavigating()
             }
         })
+
+        userDetailsViewModel.switchActivity.observe(viewLifecycleOwner) { switched ->
+            if (switched == true) {
+                val intent = Intent(activity, MapsActivity::class.java)
+                startActivity(intent)
+            }
+        }
 
         return binding.root
     }

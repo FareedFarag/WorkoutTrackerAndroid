@@ -14,3 +14,9 @@ class UserRepository(private val dao: UserDao) {
         return dao.getUserByUserID(userID)
     }
 }
+
+class profileRepository(private val dao: profileDao) {
+    suspend fun insertProfile(userProfile : Profile) {
+        return dao.insertProfile(userProfile)
+    }
+}

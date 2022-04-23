@@ -1,24 +1,18 @@
 package com.example.workouttracker.login
 
 import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.*
-//import com.example.workouttracker.Communicator
 import com.example.workouttracker.SharedPreference
-import com.example.workouttracker.SharedViewModel
 import com.example.workouttracker.database.UserRepository
+import com.toxicbakery.bcrypt.Bcrypt
 import kotlinx.coroutines.*
-
 
 class LoginViewModel(private val repository: UserRepository, application: Application) :
     AndroidViewModel(application), Observable {
 
     var sharedPreference =SharedPreference(application)
-//    private var model: Communicator?= ViewModelProvider().get(Communicator::class.java)
-//    private val model: SharedViewModel by activityViewModels()
 
     @Bindable
     val inputUsername = MutableLiveData<String>()
@@ -66,11 +60,10 @@ class LoginViewModel(private val repository: UserRepository, application: Applic
 
                 val checkUsername = repository.getUserByUsername(inputUsername.value!!)
                 if (checkUsername != null) {
-                    if(checkUsername.password == inputPassword.value){
+                    if( Bcrypt.verify(inputPassword.value!!, checkUsername.password)){
                         inputUsername.value = null
                         inputPassword.value = null
                         sharedPreference.saveString("isLoggedIn","1")
-//                        model!!.setMsgCommunicator(checkUsername.firstName.toString()
                         sharedPreference.saveString("firstName", checkUsername.firstName)
 
                         _navigateToUserDetails.value = true
