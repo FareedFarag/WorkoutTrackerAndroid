@@ -49,9 +49,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         binding.donebtn.setOnClickListener{
             calculateDistance(locationsarray)
             Toast.makeText(applicationContext,"Done",Toast.LENGTH_SHORT).show()
-            Toast.makeText(applicationContext, "Distance: $totalD",Toast.LENGTH_LONG).show()
             onPause()
-
+            binding.distance.text = "Distance:$totalD"
+            binding.myViewFlipper.showNext()
+        }
+        binding.previous.setOnClickListener {
+            binding.myViewFlipper.showPrevious()
         }
 
 
