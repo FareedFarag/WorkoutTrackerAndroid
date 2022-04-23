@@ -73,10 +73,10 @@ class RegisterViewModel(private val repository: UserRepository, application: App
                     val email = inputUsername.value!!
                     val password = inputPassword.value!!
 //                    val hash = BCryptPasswordEncoder().encode(password)
-//                    val hash = Bcrypt.hash(password, 10)
+                    val hash = Bcrypt.hash(password, 10)
 //                    val hash = hash(inputPassword.value!!)
 //                    Log.d("hash", hash.toString())
-                    insert(UserEntity(0, firstName, lastName, email, password))
+                    insert(UserEntity(0, firstName, lastName, email, hash))
                     inputFirstName.value = null
                     inputLastName.value = null
                     inputUsername.value = null

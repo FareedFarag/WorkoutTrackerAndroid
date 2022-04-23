@@ -19,7 +19,7 @@ data class UserEntity(
     var userName: String,
 
     @ColumnInfo(name = "password")
-    var password: String
+    var password: ByteArray
 )
 
 @Entity(tableName = "profile")

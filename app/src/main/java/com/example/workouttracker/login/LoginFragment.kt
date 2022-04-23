@@ -18,7 +18,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.example.workouttracker.R
 import com.example.workouttracker.SharedPreference
-import com.example.workouttracker.SharedViewModel
 import com.example.workouttracker.database.UserDatabase
 import com.example.workouttracker.database.UserRepository
 import com.example.workouttracker.databinding.FragmentLoginBinding
@@ -31,7 +30,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: FragmentLoginBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_login, container, false
@@ -52,9 +51,6 @@ class LoginFragment : Fragment() {
             override fun handleOnBackPressed() {
                 if (doubleBackToExitPressedOnce) {
                     exitProcess(0)
-//                    super.onBackPressed()
-                    Log.d("pref", "back")
-                    return
                 }
 
                 this.doubleBackToExitPressedOnce = true

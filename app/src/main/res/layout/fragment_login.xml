@@ -54,17 +54,17 @@
             android:layout_marginStart="80dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="80dp"
+            android:background="@drawable/layout_bg"
             android:ems="10"
             android:hint=" Enter your username"
             android:importantForAutofill="no"
             android:inputType="text"
             android:text="@={loginViewModel.inputUsername}"
+            android:textColorHint="#546E7A"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/usernameLoginText"
-            android:background="@drawable/layout_bg"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/usernameLoginText" />
 
         <TextView
             android:id="@+id/passwordLoginText"
@@ -89,13 +89,14 @@
             android:layout_marginStart="80dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="80dp"
+            android:background="@drawable/layout_bg"
             android:ems="10"
             android:hint=" Enter your password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:text="@={loginViewModel.inputPassword}"
+            android:textColorHint="#546E7A"
             android:textSize="14sp"
-            android:background="@drawable/layout_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,17 +105,19 @@
         <Button
             android:id="@+id/submitLoginButton"
             android:layout_width="86dp"
-            android:layout_height="46dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#C2B8AC"
             android:onClick="@{()->loginViewModel.loginButton()}"
             android:text="Login"
+            android:textColor="#5D4037"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordTextField"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
             android:id="@+id/SignUpButton"
