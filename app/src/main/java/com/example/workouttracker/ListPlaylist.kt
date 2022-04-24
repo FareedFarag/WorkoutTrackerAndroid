@@ -31,11 +31,15 @@ class ListPlaylist : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val file = File(this.filesDir, "playlists.ser")
-        var ins: InputStream = file.inputStream()
-        // read contents of IntputStream to String
-        var content = ins.readBytes().toString(Charset.defaultCharset())
-        playlistList = Json.decodeFromString(content)
+        try {
+            val file = File(this.filesDir, "playlists.ser")
+            var ins: InputStream = file.inputStream()
+            // read contents of IntputStream to String
+            var content = ins.readBytes().toString(Charset.defaultCharset())
+            playlistList = Json.decodeFromString(content)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
 
         plAdapter = PlaylistsAdapter(playlistList, this)
         binding = ActivityListPlaylistBinding.inflate(layoutInflater)
