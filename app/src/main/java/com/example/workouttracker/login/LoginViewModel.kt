@@ -65,6 +65,7 @@ class LoginViewModel(private val repository: UserRepository, application: Applic
                         inputPassword.value = null
                         sharedPreference.saveString("isLoggedIn","1")
                         sharedPreference.saveString("firstName", checkUsername.firstName)
+                        sharedPreference.saveString("userID", checkUsername.userId.toString())
 
                         _navigateToUserDetails.value = true
                     }else{

@@ -16,11 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sharedPreference =SharedPreference(this)
+        sharedPreference = SharedPreference(this)
+        val isLoggedIn = sharedPreference!!.getPreferenceString("isLoggedIn")
+        val userid = sharedPreference!!.getPreferenceString("userID")
+        if (userid != null) {
+            // do whatever you want with the userid
+        }
 
         // Redirect user to dashboard if user is already logged in
-        val isLoggedIn = sharedPreference!!.getPreferenceString("isLoggedIn")
-
         if (isLoggedIn != null){
             val navHostFragment = (supportFragmentManager.findFragmentById(R.id.myNavHostFragment) as NavHostFragment)
             val inflater = navHostFragment.navController.navInflater
@@ -29,19 +32,4 @@ class MainActivity : AppCompatActivity() {
             navHostFragment.navController.graph = graph
         }
     }
-
-//    private var doubleBackToExitPressedOnce = false
-//    override fun onBackPressed() {
-//        if (doubleBackToExitPressedOnce) {
-//            super.onBackPressed()
-//            Log.d("pref", "back")
-//            return
-//        }
-//
-//        this.doubleBackToExitPressedOnce = true
-//        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
-//
-//        Handler(Looper.getMainLooper()).postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
-//    }
-
 }
