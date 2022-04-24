@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreference = SharedPreference(this)
         val isLoggedIn = sharedPreference!!.getPreferenceString("isLoggedIn")
+        val userid = sharedPreference!!.getPreferenceString("userID")
+        if (userid != null) {
+            // do whatever you want with the userid
+        }
 
         // Redirect user to dashboard if user is already logged in
         if (isLoggedIn != null){
