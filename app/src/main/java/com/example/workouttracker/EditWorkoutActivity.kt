@@ -10,6 +10,11 @@ import android.widget.DatePicker
 import androidx.core.app.NavUtils
 import com.example.workouttracker.list.Workout
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.text.FieldPosition
 
 var playlistWorkoutPosition = 0
@@ -48,5 +53,17 @@ class EditWorkoutActivity : AppCompatActivity() {
         playlistList[playlistListPosition].list[playlistWorkoutPosition] = Workout(
             name, weight.toInt(), sets.toInt(), reps.toInt(), note
         )
+
+        val serList = Json.encodeToString(playlistList)
+        val file = File(this.filesDir,"playlists.ser")
+
+        try {
+            FileOutputStream(file).use { fos ->
+                fos.write(serList.toByteArray())
+                println("Successfully written data to the file")
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
     }
 }

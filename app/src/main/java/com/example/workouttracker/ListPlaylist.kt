@@ -12,7 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workouttracker.databinding.ActivityListPlaylistBinding
 import com.example.workouttracker.list.Playlist
 import com.example.workouttracker.list.PlaylistsAdapter
-
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.nio.charset.Charset
 
 var playlistList = mutableListOf<Playlist>()
 
@@ -23,6 +30,13 @@ class ListPlaylist : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val file = File(this.filesDir, "playlists.ser")
+        var ins: InputStream = file.inputStream()
+        // read contents of IntputStream to String
+        var content = ins.readBytes().toString(Charset.defaultCharset())
+        playlistList = Json.decodeFromString(content)
+
         plAdapter = PlaylistsAdapter(playlistList, this)
         binding = ActivityListPlaylistBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -55,6 +69,19 @@ class ListPlaylist : AppCompatActivity() {
                 // add input into an data collection arraylist
                 else {
                     playlistList.add(Playlist(getInput, mutableListOf()))
+
+                    val serList = Json.encodeToString(playlistList)
+                    val file = File(this.filesDir,"playlists.ser")
+
+                    try {
+                        FileOutputStream(file).use { fos ->
+                            fos.write(serList.toByteArray())
+                            println("Successfully written data to the file")
+                        }
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+
                     plAdapter.notifyItemInserted(playlistList.size)
                 }
             }
