@@ -33,9 +33,9 @@ class ListPlaylist : AppCompatActivity() {
 
         try {
             val file = File(this.filesDir, "playlists.ser")
-            var ins: InputStream = file.inputStream()
-            // read contents of IntputStream to String
-            var content = ins.readBytes().toString(Charset.defaultCharset())
+            val ins: InputStream = file.inputStream()
+            // read contents of InputStream to String
+            val content = ins.readBytes().toString(Charset.defaultCharset())
             playlistList = Json.decodeFromString(content)
         } catch (e: IOException) {
             e.printStackTrace()
