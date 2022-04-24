@@ -3,21 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Clifford/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/activity_maps.xml" value="0.10190217391304347" />
-        <entry key="..\:/Users/Clifford/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/fragment_user_details.xml" value="0.24583333333333332" />
-        <entry key="..\:/Users/Clifford/AndroidStudioProjects/WorkoutTrackerAndroid/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/Clifford/AndroidStudioProjects/WorkoutTrackerAndroid/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/fragment_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/fragment_user_details.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.101" />
+        <entry key="app/src/main/res/drawable-xxhdpi/add.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-xxhdpi/graph.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-xxhdpi/home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-xxhdpi/ic_baseline_add.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-xxhdpi/joglog.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-xxhdpi/profile.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.101" />
         <entry key="app/src/main/res/drawable/layout_bg.xml" value="0.101" />
+        <entry key="app/src/main/res/layout/activity_add_workout.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/activity_age.xml" value="0.1331329345703125" />
+        <entry key="app/src/main/res/layout/activity_bottom_nav.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_edit_workout.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/activity_gender.xml" value="0.1398176291793313" />
+        <entry key="app/src/main/res/layout/activity_height.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_hight_data.xml" value="0.11372847011144883" />
+        <entry key="app/src/main/res/layout/activity_list_playlist.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/activity_list_workout.xml" value="0.14402173913043478" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1887031408308004" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/activity_weight.xml" value="0.17984189723320157" />
+        <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/fragment_graph.xml" value="0.14402173913043478" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3205001831054688" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.312329093832617" />
-        <entry key="app/src/main/res/layout/fragment_user_details.xml" value="0.14311043566362716" />
+        <entry key="app/src/main/res/layout/fragment_user_details.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_playlist.xml" value="0.1398176291793313" />
+        <entry key="app/src/main/res/layout/item_workout.xml" value="0.1398176291793313" />
+        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.29444444444444445" />
       </map>
     </option>
   </component>

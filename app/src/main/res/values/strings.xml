@@ -6,4 +6,10 @@
     <string name="location">Location</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_lists">My Workouts</string>
+
+    <string-array name="choices">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Non-binary</item>
+    </string-array>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/joglog"
+        android:title="Joglog"
+        android:icon="@drawable/joglog"/>
+    <item
+        android:id="@+id/add"
+        android:title="Add"
+        android:icon="@drawable/add"/>
+    <item
+        android:id="@+id/graph"
+        android:title="Graph"
+        android:icon="@drawable/graph"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/profile"/>
+
+</menu>

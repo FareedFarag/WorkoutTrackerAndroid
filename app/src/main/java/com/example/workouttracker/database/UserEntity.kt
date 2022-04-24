@@ -24,11 +24,18 @@ data class UserEntity(
 
 @Entity(tableName = "profile")
 data class Profile(
+    @PrimaryKey(autoGenerate = false)
     var userId: Int,
 
     @ColumnInfo(name = "weight")
     var weight: Double,
 
     @ColumnInfo(name = "height")
-    var height: String
+    var height: String,
+
+    @ColumnInfo(name = "birthdate")
+    var birthdate: String,
+
+    @ColumnInfo(name = "gender")
+    var gender: String
 )

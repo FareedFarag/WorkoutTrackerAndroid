@@ -162,9 +162,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         totalD = tempTotalDistance
     }
 
-
-
-
-
     override fun onMarkerClick(p0: Marker) = false
 }

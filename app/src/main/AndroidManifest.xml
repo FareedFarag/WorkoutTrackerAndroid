@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkoutTracker">
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -40,15 +39,32 @@
         <activity
             android:name=".ListWorkout"
             android:exported="false"
+            android:parentActivityName=".ListPlaylist"
             android:label="@string/title_activity_lists" />
         <activity
             android:name=".AddWorkoutActivity"
             android:exported="false"
+            android:parentActivityName=".ListWorkout"
             android:label="@string/title_activity_lists" />
         <activity
             android:name=".EditWorkoutActivity"
             android:exported="false"
             android:label="@string/title_activity_lists" />
+        <activity
+            android:name=".profile.weight"
+            android:exported="false" />
+        <activity
+            android:name=".profile.height"
+            android:exported="false" />
+        <activity
+            android:name=".profile.AgeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bottomNav.bottomNavActivity"
+            android:exported="false" />
+        <activity
+            android:name=".graph.graph"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

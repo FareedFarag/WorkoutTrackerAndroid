@@ -1,6 +1,7 @@
 package com.example.workouttracker
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -29,14 +30,19 @@ class ListPlaylist : AppCompatActivity() {
     private lateinit var binding: ActivityListPlaylistBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("test", "ADDDDDD" )
+
         super.onCreate(savedInstanceState)
 
-        val file = File(this.filesDir, "playlists.ser")
-        var ins: InputStream = file.inputStream()
-        // read contents of IntputStream to String
-        var content = ins.readBytes().toString(Charset.defaultCharset())
-        playlistList = Json.decodeFromString(content)
-
+        try {
+            val file = File(this.filesDir, "playlists.ser")
+            var ins: InputStream = file.inputStream()
+            // read contents of IntputStream to String
+            var content = ins.readBytes().toString(Charset.defaultCharset())
+            playlistList = Json.decodeFromString(content)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
         plAdapter = PlaylistsAdapter(playlistList, this)
         binding = ActivityListPlaylistBinding.inflate(layoutInflater)
         setContentView(binding.root)
