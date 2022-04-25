@@ -16,7 +16,7 @@
         android:layout_height="54dp"
         android:layout_marginStart="16dp"
         android:gravity="center_vertical"
-
+        android:textColorHint="#0000FF"
         android:text="title"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

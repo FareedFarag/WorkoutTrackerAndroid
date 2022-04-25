@@ -33,8 +33,8 @@ data class Profile(
     @ColumnInfo(name = "height")
     var height: String,
 
-    @ColumnInfo(name = "birthdate")
-    var birthdate: String,
+    @ColumnInfo(name = "age")
+    var age: String,
 
     @ColumnInfo(name = "gender")
     var gender: String

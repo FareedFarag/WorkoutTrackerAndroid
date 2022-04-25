@@ -1,6 +1,7 @@
 package com.example.workouttracker.login
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -18,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.example.workouttracker.R
 import com.example.workouttracker.SharedPreference
+import com.example.workouttracker.bottomNav.bottomNavActivity
 import com.example.workouttracker.database.UserDatabase
 import com.example.workouttracker.database.UserRepository
 import com.example.workouttracker.databinding.FragmentLoginBinding
@@ -107,6 +109,8 @@ class LoginFragment : Fragment() {
     private fun navigateUserDetails() {
         val action = LoginFragmentDirections.actionLoginFragmentToUserDetailsFragment()
         NavHostFragment.findNavController(this).navigate(action)
+        val intent = Intent(activity, bottomNavActivity::class.java)
+        startActivity(intent)
     }
 
 }
