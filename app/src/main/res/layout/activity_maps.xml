@@ -51,6 +51,14 @@
             android:text="Distance:">
 
         </TextView>
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/distance"
+            android:text="Avg Speed:">
+
+        </TextView>
 
 
     </LinearLayout>
