@@ -36,6 +36,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private var requestingLocationUpdates: Boolean = false
     private var locationsarray: ArrayList<LatLng> = ArrayList()
     private var totalD: Float = 0f
+    private var speedArray: ArrayList<Float> = ArrayList()
+    private var averageSpeed: Float = 0f
     companion object{
         private const val LOCATION_REQUEST_CODE = 1
     }
@@ -48,6 +50,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         setContentView(binding.root)
         binding.donebtn.setOnClickListener{
             calculateDistance(locationsarray)
+            calculateAverageSpeed(speedArray)
             Toast.makeText(applicationContext,"Done",Toast.LENGTH_SHORT).show()
             onPause()
             binding.distance.text = "Distance:$totalD"
@@ -74,6 +77,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     placeMarkerOnMap(mylocation)
                     // ...
                     locationsarray.add(mylocation)
+                    speedArray.add(location.speed)
 
                     if(locationsarray.size > 1) {
                         mMap.addPolyline(
@@ -160,6 +164,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             tempTotalDistance += results[0]
         }
         totalD = tempTotalDistance
+    }
+
+    private fun calculateAverageSpeed(speeds: ArrayList<Float>){
+        var totalSpeed = 0f
+        for(speed in speeds){
+            totalSpeed += speed
+        }
+        averageSpeed = totalSpeed / speeds.size
     }
 
     override fun onMarkerClick(p0: Marker) = false
