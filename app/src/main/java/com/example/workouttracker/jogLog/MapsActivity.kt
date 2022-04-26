@@ -1,6 +1,7 @@
 package com.example.workouttracker.jogLog
 
 import android.Manifest
+import android.content.Intent
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.workouttracker.R
+import com.example.workouttracker.bottomNav.bottomNavActivity
 import com.example.workouttracker.databinding.ActivityMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -63,6 +65,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         binding.previous.setOnClickListener {
             binding.myViewFlipper.showPrevious()
             onResume()
+        }
+        binding.home.setOnClickListener {
+            val intent = Intent(this, bottomNavActivity::class.java)
+            startActivity(intent)
+        }
+        binding.homeMap.setOnClickListener {
+            val intent = Intent(this, bottomNavActivity::class.java)
+            startActivity(intent)
         }
 
 
