@@ -54,10 +54,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             Toast.makeText(applicationContext,"Done",Toast.LENGTH_SHORT).show()
             onPause()
             binding.distance.text = "Distance:$totalD"
+            binding.speed.text = "AverageSpeed:$averageSpeed"
             binding.myViewFlipper.showNext()
         }
         binding.previous.setOnClickListener {
             binding.myViewFlipper.showPrevious()
+            onResume()
         }
 
 
@@ -77,7 +79,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     placeMarkerOnMap(mylocation)
                     // ...
                     locationsarray.add(mylocation)
+
                     speedArray.add(location.speed)
+                    Log.d("Speed", "Speed = " + location.speed)
 
                     if(locationsarray.size > 1) {
                         mMap.addPolyline(
@@ -171,6 +175,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         for(speed in speeds){
             totalSpeed += speed
         }
+        Log.d("TotalSpeed", "TotalSpeed = " + totalSpeed)
+        Log.d("SpeedSize", "speeds size = " + speeds.size)
         averageSpeed = totalSpeed / speeds.size
     }
 
