@@ -92,8 +92,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     //placeMarkerOnMap(mylocation)
                     // ...
                     locationsarray.add(mylocation)
-
-                    speedArray.add(location.speed)
+                    if(location.hasSpeed()){
+                        speedArray.add(location.speed)
+                    }
                     Log.d("Speed", "Speed = " + location.speed)
 
                     if(locationsarray.size > 1) {
