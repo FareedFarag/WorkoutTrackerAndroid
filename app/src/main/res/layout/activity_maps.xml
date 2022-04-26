@@ -44,22 +44,12 @@
             android:padding="4dp" />
 
         <TextView
+            android:layout_gravity="center"
             android:id="@+id/distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Distance:"
-            android:textColor="@color/black"
-            android:gravity="left|center_horizontal">
-
-        </TextView>
-        <TextView
-            android:id="@+id/speed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Avg Speed:"
-            android:textColor="@color/black"
-            android:layout_gravity="right|center_vertical">
-
+            android:text="Distance: and Speed:"
+            android:textColor="@color/black">
         </TextView>
     </FrameLayout>
 </ViewFlipper>

@@ -53,8 +53,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             calculateAverageSpeed(speedArray)
             Toast.makeText(applicationContext,"Done",Toast.LENGTH_SHORT).show()
             onPause()
-            binding.distance.text = "Distance:$totalD"
-            binding.speed.text = "AverageSpeed:$averageSpeed"
+            binding.distance.text = "Distance:" + String.format("%.4f", totalD) + "\n " +
+                    "AverageSpeed:" + String.format("%.4f",averageSpeed)
             speedArray.clear()
             locationsarray.clear()
             binding.myViewFlipper.showNext()
@@ -79,7 +79,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     //Log.d("LocationUpdate", "Latitude = " + location.latitude + " Longitude = " + location.longitude)
                     // Update UI with location data
                     val mylocation = LatLng(location.latitude,location.longitude)
-                    placeMarkerOnMap(mylocation)
+                    //placeMarkerOnMap(mylocation)
                     // ...
                     locationsarray.add(mylocation)
 
@@ -124,13 +124,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         mMap.isMyLocationEnabled = true
         startLocationUpdates()
     }
-    private fun placeMarkerOnMap(currentLatLong: LatLng) {
+    /*private fun placeMarkerOnMap(currentLatLong: LatLng) {
         val markerOptions = MarkerOptions().position(currentLatLong)
         markerOptions.title("$currentLatLong")
         //Log.d("location: ", currentLatLong.toString())
         mMap.addMarker(markerOptions)
 
-    }
+    }*/
 
     override fun onResume() {
         super.onResume()
