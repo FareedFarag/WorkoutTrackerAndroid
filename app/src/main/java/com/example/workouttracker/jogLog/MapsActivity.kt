@@ -55,7 +55,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             onPause()
             binding.distance.text = "Distance:$totalD"
             binding.speed.text = "AverageSpeed:$averageSpeed"
+            speedArray.clear()
+            locationsarray.clear()
             binding.myViewFlipper.showNext()
+
         }
         binding.previous.setOnClickListener {
             binding.myViewFlipper.showPrevious()
