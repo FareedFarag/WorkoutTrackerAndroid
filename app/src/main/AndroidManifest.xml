@@ -59,6 +59,7 @@
         <activity
             android:name=".profile.AgeActivity"
             android:exported="false" />
+
         <activity
             android:name=".bottomNav.bottomNavActivity"
             android:exported="false" />

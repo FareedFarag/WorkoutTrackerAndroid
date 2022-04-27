@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.workouttracker.R
+import com.example.workouttracker.database.ProfileRepository
 import com.example.workouttracker.database.UserDatabase
 import com.example.workouttracker.database.UserRepository
 import com.example.workouttracker.databinding.FragmentRegisterBinding
@@ -38,8 +39,11 @@ class RegisterFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
         val dao = UserDatabase.getInstance(application).userDao
+        val daoProfile = UserDatabase.getInstance(application).profileDao
+
         val repository = UserRepository(dao)
-        val factory = RegisterViewModelFactory(repository, application)
+        val repositoryProfile = ProfileRepository(daoProfile)
+        val factory = RegisterViewModelFactory(repository, repositoryProfile, application)
 
         registerViewModel = ViewModelProvider(this, factory).get(RegisterViewModel::class.java)
 

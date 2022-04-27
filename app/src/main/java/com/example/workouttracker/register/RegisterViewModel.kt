@@ -6,14 +6,17 @@ import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.*
 import at.favre.lib.crypto.bcrypt.BCrypt
+import com.example.workouttracker.database.ProfileRepository
 import com.example.workouttracker.database.UserEntity
+import com.example.workouttracker.database.ProfileEntity
 import com.example.workouttracker.database.UserRepository
 import com.toxicbakery.bcrypt.Bcrypt
 import de.nycode.bcrypt.hash
 import kotlinx.coroutines.*
+import java.util.*
 
 
-class RegisterViewModel(private val repository: UserRepository, application: Application) :
+class RegisterViewModel(private val repository: UserRepository, private val profileRepo:  ProfileRepository, application: Application) :
     AndroidViewModel(application), Observable {
 
     private var userdata: String? = null
@@ -74,9 +77,14 @@ class RegisterViewModel(private val repository: UserRepository, application: App
                     val password = inputPassword.value!!
 //                    val hash = BCryptPasswordEncoder().encode(password)
                     val hash = Bcrypt.hash(password, 10)
+                    var userID = UUID.randomUUID().toString()
 //                    val hash = hash(inputPassword.value!!)
 //                    Log.d("hash", hash.toString())
-                    insert(UserEntity(0, firstName, lastName, email, hash))
+                    insert(UserEntity(userID, firstName, lastName, email, hash))
+
+                    // initialize empty row in profile table
+                    insertProfile(ProfileEntity(userID, null, null, null, null))
+
                     inputFirstName.value = null
                     inputLastName.value = null
                     inputUsername.value = null
@@ -109,6 +117,10 @@ class RegisterViewModel(private val repository: UserRepository, application: App
 
     private fun insert(user: UserEntity): Job = viewModelScope.launch {
         repository.insert(user)
+    }
+
+    private fun insertProfile(profile: ProfileEntity): Job = viewModelScope.launch {
+        profileRepo.insertProfile(profile)
     }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

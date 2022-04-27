@@ -14,11 +14,5 @@ interface UserDao {
     suspend fun getUserByUsername(username: String): UserEntity?
 
     @Query("SELECT * FROM users WHERE username = :userID")
-    suspend fun getUserByUserID(userID: Int): UserEntity?
-}
-
-@Dao
-interface profileDao {
-    @Insert
-    suspend fun insertProfile(userProfile: Profile)
+    suspend fun getUserByUserID(userID: String): UserEntity?
 }

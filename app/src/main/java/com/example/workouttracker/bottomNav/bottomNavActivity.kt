@@ -6,13 +6,20 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import com.example.workouttracker.*
+import com.example.workouttracker.database.ProfileRepository
+import com.example.workouttracker.database.UserDatabase
 import com.example.workouttracker.graph.graph
 import com.example.workouttracker.jogLog.MapsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 
-class bottomNavActivity : AppCompatActivity(){
+class bottomNavActivity() : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_nav)
@@ -43,8 +50,6 @@ class bottomNavActivity : AppCompatActivity(){
             }
             true
         }
-
-
     }
     private fun setCurrentFragment(fragment: Fragment)=
         supportFragmentManager.beginTransaction().apply {

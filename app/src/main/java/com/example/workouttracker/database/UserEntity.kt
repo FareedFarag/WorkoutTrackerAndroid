@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
 data class UserEntity(
-    @PrimaryKey(autoGenerate = true)
-    var userId: Int = 0,
+    @PrimaryKey
+    var userId: String,
 
     @ColumnInfo(name = "firstName")
     var firstName: String,
@@ -20,22 +20,4 @@ data class UserEntity(
 
     @ColumnInfo(name = "password")
     var password: ByteArray
-)
-
-@Entity(tableName = "profile")
-data class Profile(
-    @PrimaryKey(autoGenerate = false)
-    var userId: Int,
-
-    @ColumnInfo(name = "weight")
-    var weight: Double,
-
-    @ColumnInfo(name = "height")
-    var height: String,
-
-    @ColumnInfo(name = "age")
-    var age: String,
-
-    @ColumnInfo(name = "gender")
-    var gender: String
 )

@@ -10,13 +10,7 @@ class UserRepository(private val dao: UserDao) {
         return dao.getUserByUsername(username)
     }
 
-    suspend fun getUserByUserID(userID: Int):UserEntity?{
+    suspend fun getUserByUserID(userID: String):UserEntity?{
         return dao.getUserByUserID(userID)
-    }
-}
-
-class profileRepository(private val dao: profileDao) {
-    suspend fun insertProfile(userProfile : Profile) {
-        return dao.insertProfile(userProfile)
     }
 }

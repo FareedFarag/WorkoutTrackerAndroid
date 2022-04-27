@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [UserEntity::class], version = 2, exportSchema = false)
+@Database(entities = [UserEntity::class, ProfileEntity::class], version = 7, exportSchema = true)
 abstract class UserDatabase : RoomDatabase() {
 
     abstract val userDao: UserDao
+    abstract val profileDao: ProfileDao
 
     companion object {
         @Volatile

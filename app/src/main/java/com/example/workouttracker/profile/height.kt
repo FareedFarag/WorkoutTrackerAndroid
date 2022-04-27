@@ -1,5 +1,6 @@
 package com.example.workouttracker.profile
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -69,8 +70,11 @@ class height : AppCompatActivity() {
                     heightList.removeAt(occurenceOfDate)
                 }
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                val intent = Intent(this, bottomNavActivity::class.java)
+                intent.putExtra("height", height.toString())
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+//                startActivity(intent)
             }
             else {1
                 Toast.makeText(
