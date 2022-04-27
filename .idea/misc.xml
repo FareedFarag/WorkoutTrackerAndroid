@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Clifford/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/activity_bottom_nav.xml" value="0.1078125" />
+        <entry key="..\:/Users/Clifford/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/activity_maps.xml" value="0.25" />
         <entry key="..\:/Users/Fadya/AndroidStudioProjects/WorkoutTracker/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />

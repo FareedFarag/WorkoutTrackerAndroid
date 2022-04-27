@@ -1,6 +1,7 @@
 package com.example.workouttracker.jogLog
 
 import android.Manifest
+import android.content.Intent
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.workouttracker.R
+import com.example.workouttracker.bottomNav.bottomNavActivity
 import com.example.workouttracker.databinding.ActivityMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -53,13 +55,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             calculateAverageSpeed(speedArray)
             Toast.makeText(applicationContext,"Done",Toast.LENGTH_SHORT).show()
             onPause()
-            binding.distance.text = "Distance:$totalD"
-            binding.speed.text = "AverageSpeed:$averageSpeed"
+            binding.distance.text = "Distance:" + String.format("%.4f", totalD) + "\n " +
+                    "AverageSpeed:" + String.format("%.4f",averageSpeed)
+            speedArray.clear()
+            locationsarray.clear()
             binding.myViewFlipper.showNext()
+
         }
         binding.previous.setOnClickListener {
             binding.myViewFlipper.showPrevious()
             onResume()
+        }
+        binding.home.setOnClickListener {
+            val intent = Intent(this, bottomNavActivity::class.java)
+            startActivity(intent)
+        }
+        binding.homeMap.setOnClickListener {
+            val intent = Intent(this, bottomNavActivity::class.java)
+            startActivity(intent)
         }
 
 
@@ -76,11 +89,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     //Log.d("LocationUpdate", "Latitude = " + location.latitude + " Longitude = " + location.longitude)
                     // Update UI with location data
                     val mylocation = LatLng(location.latitude,location.longitude)
-                    placeMarkerOnMap(mylocation)
+                    //placeMarkerOnMap(mylocation)
                     // ...
                     locationsarray.add(mylocation)
-
-                    speedArray.add(location.speed)
+                    if(location.hasSpeed()){
+                        speedArray.add(location.speed)
+                    }
                     Log.d("Speed", "Speed = " + location.speed)
 
                     if(locationsarray.size > 1) {
@@ -121,13 +135,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         mMap.isMyLocationEnabled = true
         startLocationUpdates()
     }
-    private fun placeMarkerOnMap(currentLatLong: LatLng) {
+    /*private fun placeMarkerOnMap(currentLatLong: LatLng) {
         val markerOptions = MarkerOptions().position(currentLatLong)
         markerOptions.title("$currentLatLong")
         //Log.d("location: ", currentLatLong.toString())
         mMap.addMarker(markerOptions)
 
-    }
+    }*/
 
     override fun onResume() {
         super.onResume()
